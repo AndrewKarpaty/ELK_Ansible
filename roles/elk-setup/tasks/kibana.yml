@@ -1,11 +1,11 @@
 ---
 - name: Download Kibana
-  get_url: url=https://artifacts.elastic.co/downloads/kibana/kibana-5.6.3-x86_64.rpm dest=/tmp/
+  get_url: url=https://artifacts.elastic.co/downloads/kibana/kibana-{{ kibana.version }}-x86_64.rpm dest=/tmp/
 
 - name: Installing Kibana
-  yum: name=/tmp/kibana-5.6.3-x86_64.rpm state=present
+  yum: name=/tmp/kibana-{{ kibana.version }}-x86_64.rpm state=present
 
-- name: Restrict to localhost
+- name: Change IP adress of host
   lineinfile: 'dest=/etc/kibana/kibana.yml regexp=server.host line="server.host: 0.0.0.0"'
   notify: Restart kibana
 

@@ -4,7 +4,6 @@
 java_version: 1.8.0
 
 elk_kibana:
-  version: 5.6.3-linux-x64
   path: /opt/kibana
   port: 5601
   user: kibana 
@@ -13,16 +12,13 @@ elk_kibana:
     - 127.0.0.1
 
 elasticsearch:
-  version: 2.x
+  version: 5.x
+  port: 9200
 
-kibana_version:
+kibana:
   version: 5.6.3
 
-nginx:
-  port: 80
-  error_log: /var/log/nginx/error.log
-  worker_connections: 1024
-  keepalive_timeout: 65
 
 logstash:
-  version: 5.6.3  
+  version: 5.x
+  port: 5044

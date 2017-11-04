@@ -5,3 +5,12 @@
 - name: Install Logstash
   yum: name=logstash state=installed
 
+- name: Copy Logstash input template
+  template: src=02-beats-input.conf.j2 dest=/etc/logstash/conf.d/02-beats-input.conf
+
+- name: Copy Logstash output template
+  template: src=output.conf.j2 dest=/etc/logstash/conf.d/output.conf
+
+- name: Copy Logstash filter template
+  template: src=filter.conf.j2 dest=/etc/logstash/conf.d/filter.conf
+
