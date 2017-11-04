@@ -22,3 +22,6 @@ kibana:
 logstash:
   version: 5.x
   port: 5044
+
+beats:
+  version: 5.x

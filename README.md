@@ -7,3 +7,9 @@ Requirements
 ------------
 
 CentOS/Redhat 7
+
+How to start
+------------
+
+Simply start ELKInstall.yaml
+

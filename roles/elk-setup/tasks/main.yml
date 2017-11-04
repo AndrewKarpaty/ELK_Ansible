@@ -1,6 +1,4 @@
 ---
-# tasks file for elk-setup
-
 - name: Install Java 8
   include: java.yml
 
@@ -13,4 +11,5 @@
 - name: Install Logstash
   include: logstash.yml
 
-
+- name: Install Metricbeat
+  include: metricbeat.yaml
