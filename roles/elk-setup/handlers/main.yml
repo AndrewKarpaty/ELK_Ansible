@@ -1,0 +1,21 @@
+---
+
+- name: Restart elasticsearch
+  service: name=elasticsearch enabled=yes state=restarted
+
+- name: Restart kibana
+  service: name=kibana enabled=yes state=restarted
+
+- name: Restart logstash
+  service: name=logstash enabled=yes state=restarted
+
+- name: Restart filebeat
+  service: name=filebeat enabled=yes state=restarted
+
+- name: Restart topbeat
+  service: name=topbeat enabled=yes state=restarted
+
+- name: Restart packetbeat
+  service: name=packetbeat enabled=yes state=restarted
+
+

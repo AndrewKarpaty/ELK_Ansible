@@ -1,0 +1,9 @@
+---
+- name: Setting up ELK Components
+  hosts: 10.0.0.25
+  become: true
+  become_user: root
+  gather_facts: yes
+  roles:
+    - elk-setup
+ 
