@@ -14,3 +14,14 @@
 - name: Copy Logstash filter template
   template: src=filter.conf.j2 dest=/etc/logstash/conf.d/filter.conf
 
+- name: Add OpenSSL SANs (SubjectAltName) entry for CA
+  lineinfile:
+    dest: /etc/pki/tls/openssl.cnf
+    line: 'subjectAltName = "{{ logstash.ip_addr }}"'
+    regexp: '^ Extensions for a typical CA'
+    insertbefore: '# Extensions for a typical CA'
+    backup: yes
+  when: subjectAltName_exists.stdout|int == 0
+
+- name: Generate SSL certificate
+  command: openssl req -config /etc/pki/tls/openssl.cnf -x509 -days 3650 -batch -nodes -newkey rsa:2048 -keyout private/logstash-forwarder.key -out certs/logstash-forwarder.crt

@@ -22,6 +22,7 @@ kibana:
 logstash:
   version: 5.x
   port: 5044
+  ip_addr: 10.0.0.6
 
 beats:
   version: 5.x
